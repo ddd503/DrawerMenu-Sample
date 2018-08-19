@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E9l-vM-sh1">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Left Navigation Drawer View Controller-->
+        <scene sceneID="o6T-t9-B8x">
+            <objects>
+                <viewController storyboardIdentifier="LeftNavigationDrawerViewController" id="E9l-vM-sh1" customClass="LeftNavigationDrawerViewController" customModule="DrawerMenu_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qyj-8v-4ao">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SLi-RT-KTB">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="95" id="NNU-Co-Q8S">
+                                        <rect key="frame" x="0.0" y="28" width="300" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NNU-Co-Q8S" id="3tO-bP-Ce7">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="94.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SLi-RT-KTB" firstAttribute="width" secondItem="Qyj-8v-4ao" secondAttribute="width" multiplier="0.8" id="4hO-4S-hKa"/>
+                            <constraint firstItem="SLi-RT-KTB" firstAttribute="centerY" secondItem="Qyj-8v-4ao" secondAttribute="centerY" id="EYz-Sw-bzO"/>
+                            <constraint firstItem="SLi-RT-KTB" firstAttribute="leading" secondItem="n0G-tY-7s0" secondAttribute="leading" id="dBS-Jn-knV"/>
+                            <constraint firstItem="SLi-RT-KTB" firstAttribute="height" secondItem="Qyj-8v-4ao" secondAttribute="height" id="dg8-yd-uRb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="n0G-tY-7s0"/>
+                    </view>
+                    <connections>
+                        <outlet property="menuTableView" destination="SLi-RT-KTB" id="avH-Sb-aMW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dJQ-aF-ZA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.80000000000001" y="203.74812593703149"/>
+        </scene>
+    </scenes>
+</document>

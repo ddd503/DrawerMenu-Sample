@@ -1,0 +1,6 @@
+module Pods_DrawerMenu_Sample [system] {
+  umbrella header "Pods-DrawerMenu-Sample-umbrella.h"
+
+  export *
+  module * { export * }
+}
