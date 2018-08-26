@@ -33,16 +33,13 @@ final class JobOfferViewController: UIViewController {
     
     private func getDatasource() {
         self.datasource.jobOfferList =
-            JobOfferListDao.shered.selectAll(tableName: "job_master",
-                                             sort: SortType.postingStartDate.key,
+            JobOfferListDao.shered.selectAll(sort: SortType.postingStartDate.key,
                                              ascOrDesc: "ASC")
-        
     }
     
     func reload(sortType: SortType) {
         self.datasource.jobOfferList =
-            JobOfferListDao.shered.selectAll(tableName: "job_master",
-                                             sort: sortType.key,
+            JobOfferListDao.shered.selectAll(sort: sortType.key,
                                              ascOrDesc: "ASC")
         self.jobOfferListTableView.reloadData()
         // スクロールを上まで戻す

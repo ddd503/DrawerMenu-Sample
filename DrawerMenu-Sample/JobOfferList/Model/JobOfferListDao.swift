@@ -33,9 +33,15 @@ final class JobOfferListDao {
     ///   - sort: ソート対象
     ///   - acsOrDesc: 昇順or降順
     /// - Returns: JobOfferモデルの配列
-    func selectAll(tableName: String, sort: String, ascOrDesc: String) -> [JobOffer] {
+    func selectAll(sort: String, ascOrDesc: String) -> [JobOffer] {
         let db = getDB()
-        let sql = "SELECT * FROM \(tableName) ORDER BY \(sort) \(ascOrDesc)"
+        let sql = """
+            SELECT j.job_image_url, j.job_location, j.job_salary, j.job_detail_info, c.company_name
+            FROM job_master j
+            INNER JOIN company_master c
+            ON j.company_no = c.company_no
+            ORDER BY \(sort) \(ascOrDesc);
+            """
         var jobOffers: [JobOffer] = []
         db.open()
         let results = db.executeQuery(sql, withArgumentsIn: [])
@@ -46,25 +52,7 @@ final class JobOfferListDao {
             }
         }
         db.close()
-        // 会社名を取得
-        jobOffers.forEach {
-            $0.companyName = selectCompanyName(tableName: "company_master", jobOffer: $0)
-        }
         return jobOffers
     }
     
-    private func selectCompanyName(tableName: String, jobOffer: JobOffer) -> String {
-        let db = getDB()
-        let sql = "SELECT * FROM \(tableName) WHERE company_no = ?"
-        var object = ""
-        db.open()
-        let results = db.executeQuery(sql, withArgumentsIn: [jobOffer.companyNumber])
-        if let results = results {
-            while results.next() {
-                object = results.string(forColumn: "company_name") ?? ""
-            }
-        }
-        db.close()
-        return object
-    }
 }
