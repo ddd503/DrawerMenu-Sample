@@ -29,7 +29,6 @@ final class JobOfferListDao {
     /// 指定した条件でローカルのDBファイルからレコードを全件取得
     ///
     /// - Parameters:
-    ///   - tableName: テーブル名
     ///   - sort: ソート対象
     ///   - acsOrDesc: 昇順or降順
     /// - Returns: JobOfferモデルの配列
